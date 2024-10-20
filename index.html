@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; }
+    
+    .wireframe-label {
+      background: #333;
+      color: white;
+      padding: 10px;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .wireframe-box {
+      border: 2px solid #666;
+      background: #fff;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .wireframe-box::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: #666;
+      color: white;
+      padding: 0 10px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    .placeholder {
+      background: #ddd;
+      height: 20px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .placeholder.short { width: 30%; }
+    .placeholder.medium { width: 60%; }
+
+    .icon-placeholder {
+      width: 40px;
+      height: 40px;
+      background: #999;
+      border-radius: 50%;
+      margin: 10px 0;
+    }
+
+    .button-placeholder {
+      background: #666;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .sidebar {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    .image-placeholder {
+      background: #eee;
+      height: 200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+
+    .form-group {
+      margin: 15px 0;
+    }
+
+    .input-placeholder {
+      background: #eee;
+      height: 40px;
+      border-radius: 4px;
+      margin: 5px 0;
+    }
+
+    .progress-bar {
+      background: #eee;
+      height: 8px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+
+    .progress-bar::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 100%;
+      background: #666;
+      border-radius: 4px;
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background: #eee;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .modal {
+      border: 2px dashed #666;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.9);
+    }
+  </style>
+</head>
+<body>
+  <!-- Landing Page -->
+  <div class="wireframe-label">📱 Landing Page</div>
+  <div class="page-container">
+    <div class="wireframe-box" data-label="Navigation">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="placeholder short"></div>
+        <div style="display: flex; gap: 20px;">
+          <div class="placeholder short"></div>
+          <div class="placeholder short"></div>
+          <div class="placeholder short"></div>
+          <div class="button-placeholder">Sign Up</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wireframe-box" data-label="Hero Section">
+      <div style="text-align: center; padding: 40px 0;">
+        <div class="placeholder medium" style="margin: 20px auto;"></div>
+        <div class="placeholder" style="margin: 20px auto;"></div>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+          <div class="button-placeholder">Get Started</div>
+          <div class="button-placeholder">Watch Demo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-4">
+      <div class="wireframe-box" data-label="Feature 1">
+        <div class="icon-placeholder"></div>
+        <div class="placeholder short"></div>
+        <div class="placeholder"></div>
+      </div>
+      <div class="wireframe-box" data-label="Feature 2">
+        <div class="icon-placeholder"></div>
+        <div class="placeholder short"></div>
+        <div class="placeholder"></div>
+      </div>
+      <div class="wireframe-box" data-label="Feature 3">
+        <div class="icon-placeholder"></div>
+        <div class="placeholder short"></div>
+        <div class="placeholder"></div>
+      </div>
+      <div class="wireframe-box" data-label="Feature 4">
+        <div class="icon-placeholder"></div>
+        <div class="placeholder short"></div>
+        <div class="placeholder"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="wireframe-label">💻 Dashboard</div>
+  <div class="page-container">
+    <div class="grid" style="grid-template-columns: 250px 1fr;">
+      <div class="sidebar">
+        <div class="placeholder short"></div>
+        <div style="margin: 20px 0;">
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="wireframe-box" data-label="Overview">
+          <div class="grid grid-3">
+            <div>
+              <div class="placeholder short"></div>
+              <div class="placeholder medium"></div>
+              <div class="progress-bar"></div>
+            </div>
+            <div>
+              <div class="placeholder short"></div>
+              <div class="placeholder medium"></div>
+              <div class="progress-bar"></div>
+            </div>
+            <div>
+              <div class="placeholder short"></div>
+              <div class="placeholder medium"></div>
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wireframe-box" data-label="Recent Activity">
+          <div class="tab-bar">
+            <div class="tab">Tab 1</div>
+            <div class="tab">Tab 2</div>
+            <div class="tab">Tab 3</div>
+          </div>
+          <div class="grid grid-2">
+            <div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+            </div>
+            <div>
+              <div class="image-placeholder">Chart Area</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Name Generator -->
+  <div class="wireframe-label">🎯 Business Name Generator</div>
+  <div class="page-container">
+    <div class="grid" style="grid-template-columns: 2fr 1fr;">
+      <div>
+        <div class="wireframe-box" data-label="Generator Tool">
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="grid grid-3">
+              <div class="input-placeholder"></div>
+              <div class="input-placeholder"></div>
+              <div class="input-placeholder"></div>
+            </div>
+          </div>
+          <div class="button-placeholder">Generate Names</div>
+        </div>
+
+        <div class="wireframe-box" data-label="Results">
+          <div class="grid grid-2">
+            <div class="wireframe-box" data-label="Name Option 1">
+              <div class="placeholder short"></div>
+              <div class="placeholder"></div>
+              <div style="display: flex; gap: 10px;">
+                <div class="button-placeholder">Save</div>
+                <div class="button-placeholder">Details</div>
+              </div>
+            </div>
+            <div class="wireframe-box" data-label="Name Option 2">
+              <div class="placeholder short"></div>
+              <div class="placeholder"></div>
+              <div style="display: flex; gap: 10px;">
+                <div class="button-placeholder">Save</div>
+                <div class="button-placeholder">Details</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="wireframe-box" data-label="Saved Names">
+          <div class="placeholder short"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+        </div>
+        <div class="wireframe-box" data-label="Tips">
+          <div class="placeholder short"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Creator -->
+  <div class="wireframe-label">🎨 Logo Creator</div>
+  <div class="page-container">
+    <div class="grid" style="grid-template-columns: 300px 1fr 300px;">
+      <div class="sidebar">
+        <div class="wireframe-box" data-label="Tools">
+          <div class="placeholder short"></div>
+          <div class="grid grid-2" style="gap: 10px;">
+            <div class="button-placeholder">T</div>
+            <div class="button-placeholder">⭐</div>
+            <div class="button-placeholder">⬒</div>
+            <div class="button-placeholder">🎨</div>
+          </div>
+        </div>
+        <div class="wireframe-box" data-label="Layers">
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+          <div class="placeholder"></div>
+        </div>
+      </div>
+
+      <div class="wireframe-box" data-label="Canvas">
+        <div style="padding: 20px;">
+          <div class="image-placeholder" style="height: 400px;">Logo Canvas Area</div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="wireframe-box" data-label="Properties">
+          <div class="placeholder short"></div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+        </div>
+        <div class="wireframe-box" data-label="Templates">
+          <div class="placeholder short"></div>
+          <div class="grid grid-2" style="gap: 10px;">
+            <div class="image-placeholder" style="height: 100px;"></div>
+            <div class="image-placeholder" style="height: 100px;"></div>
+            <div class="image-placeholder" style="height: 100px;"></div>
+            <div class="image-placeholder" style="height: 100px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="wireframe-label">⚙️ Settings Modal</div>
+  <div class="page-container">
+    <div class="modal">
+      <div class="wireframe-box" data-label="Settings">
+        <div class="tab-bar">
+          <div class="tab">Profile</div>
+          <div class="tab">Preferences</div>
+          <div class="tab">Billing</div>
+        </div>
+        <div class="grid grid-2">
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+          <div class="form-group">
+            <div class="placeholder short"></div>
+            <div class="input-placeholder"></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <div class="button-placeholder">Cancel</div>
+          <div class="button-placeholder">Save Changes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
